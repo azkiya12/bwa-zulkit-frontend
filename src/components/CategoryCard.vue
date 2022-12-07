@@ -5,6 +5,7 @@ defineProps({
     title: String,
     count: Number,
 })
+
 </script>
 
 <template>
