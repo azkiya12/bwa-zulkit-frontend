@@ -3,9 +3,9 @@ import { ref } from 'vue';
 import ItemCard from '../ItemCard.vue';
 
 const items = ref([
-    { id: 1, title: "Mobile UI Kit", subtitle: "Mobile UI Kit", image: "items-1.jpg" },
-    { id: 2, title: "Online Doctor Consultation", subtitle: "Mobile UI Kit", image: "items-2.jpg" },
-    { id: 3, title: "Banking Crypto", subtitle: "Mobile UI Kit", image: "items-3.jpg" },
+    { id: 1, title: "Mobile UI Kit", description: "Mobile UI Kit", image: "items-1.jpg" },
+    { id: 2, title: "Online Doctor Consultation", description: "Mobile UI Kit", image: "items-2.jpg" },
+    { id: 3, title: "Banking Crypto", description: "Mobile UI Kit", image: "items-3.jpg" },
 ])
 
 </script>
@@ -18,7 +18,7 @@ const items = ref([
                 v-for="item in items"
                 :key="item.id"
                 :title="item.title"
-                :subtitle="item.subtitle"
+                :description="item.description"
                 :image="item.image"/>
         </div>
     </div>
