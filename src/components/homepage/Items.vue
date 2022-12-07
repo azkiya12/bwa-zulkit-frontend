@@ -4,8 +4,8 @@ import ItemCard from '../ItemCard.vue';
 
 const items = ref([
     { id: 1, title: "Mobile UI Kit", subtitle: "Mobile UI Kit", image: "img/items-1.jpg" },
-    { id: 2, title: "Online Doctor Consultation", subtitle: "Mobile UI Kit", image: "'/src/assets/img/items-2.jpg'" },
-    { id: 3, title: "Banking Crypto", subtitle: "Mobile UI Kit", image: "'/src/assets/img/items-3.jpg'" },
+    { id: 2, title: "Online Doctor Consultation", subtitle: "Mobile UI Kit", image: "img/items-2.jpg" },
+    { id: 3, title: "Banking Crypto", subtitle: "Mobile UI Kit", image: "img/items-3.jpg" },
 ])
 </script>
 <template>
