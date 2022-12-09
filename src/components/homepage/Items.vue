@@ -7,8 +7,8 @@ const items = ref([
     { id: 2, title: "Online Doctor Consultation", description: "Mobile UI Kit", image: "items-2.jpg" },
     { id: 3, title: "Banking Crypto", description: "Mobile UI Kit", image: "items-3.jpg" },
 ])
-
 </script>
+
 <template>
     
     <div class="container px-4 mx-auto my-16 md:px-12">

@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import CategoryCard from '@/components/CategoryCard.vue';
 
 const categories = ref([
-    { id: 1, title: "Mobile UI Kit", image: "/src/assets/img/categories-1.jpg", count: 731 },
-    { id: 2, title: "Fonts", image: "/src/assets/img/categories-2.jpg", count: 657 },
-    { id: 3, title: "Icon Set", image: "/src/assets/img/categories-3.jpg", count: 83559 },
-    { id: 4, title: "Website UI Kit", image: "/src/assets/img/categories-4.jpg", count: 4500 },
+    { id: 1, title: "Mobile UI Kit", image: "categories-1.jpg", count: 731 },
+    { id: 2, title: "Fonts", image: "categories-2.jpg", count: 657 },
+    { id: 3, title: "Icon Set", image: "categories-3.jpg", count: 83559 },
+    { id: 4, title: "Website UI Kit", image: "categories-4.jpg", count: 4500 },
 ])
 </script>
 
