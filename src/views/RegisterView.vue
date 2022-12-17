@@ -1,8 +1,8 @@
 <script setup>
-import RegisterForm from '@/components/auth/RegisterForm.vue';
-import Customizable from '@/components/auth/features/Customizable.vue';
-import Fortune from '@/components/auth/features/Fortune.vue';
-import Documentation from '@/components/auth/features/Documentation.vue';
+    import RegisterForm from '@/components/auth/RegisterForm.vue';
+    import Customizable from '@/components/auth/features/Customizable.vue';
+    import Fortune from '@/components/auth/features/Fortune.vue';
+    import Documentation from '@/components/auth/features/Documentation.vue';
 </script>
 
 <template>

@@ -1,12 +1,43 @@
 <!-- menggunakan composition -->
 <script setup>
 import { ref } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
+import axios from "axios";
+
+//deklarasi variable data untuk update data pinia globalstate setelah berhasil login
+import { useUserStore } from '@/stores/user';
+const userStore = useUserStore();
+const router = useRouter();
 
 const form = ref({
-    'email': '',
-    'password': '',
-}) // form.email
+    email: "",
+    password: "",
+})
+
+async function loginAPI() {
+    try {
+        const response = await axios.post(
+            "https://zullkit-backend.buildwithangga.id/api/login", {
+            email: form.value.email,
+            password: form.value.password,
+        })
+        localStorage.setItem('access_token', response.data.data.access_token)
+        localStorage.setItem('token_type', response.data.data.token_type)
+
+        // lakukan update data pinia
+        userStore.fetchUser();
+        // pergi ke halaman home jika berhasil login
+        router.push("/");
+        
+        // atau back satu langkah bisa pakai ini
+        // router.go(-1);
+
+        // tambahkan sweetAlernt jika berhasil
+    } catch (error) {
+        console.error(error)
+        //tambahkan sweetAlernt jika gagal
+    }
+}
 </script>
 
 <!-- jika menggunakn Option untuk Vue 2-->
@@ -30,13 +61,14 @@ export default {
             <input v-model="form.email" placeholder="Type your email" id="email" type="text" name="email"
                 class="block w-full py-3 mt-2 border border-gray-300 rounded-full shadow-sm px-7 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:bg-gray-100" />
         </div>
-        <div class="mb-4">
+        <div class="mb-4" @keyup.enter="loginAPI">
             <label class="block mb-1" for="password">Password</label>
             <input v-model="form.password" placeholder="Type your password" id="password" type="password" name="password"
                 class="block w-full py-3 mt-2 border border-gray-300 rounded-full shadow-sm px-7 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 disabled:bg-gray-100" />
         </div>
         <div class="mt-6">
-            <button type="button"
+            <button @click="loginAPI"
+                type="button"
                 class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-lg md:px-10 hover:shadow">
                 Sign In
             </button>
