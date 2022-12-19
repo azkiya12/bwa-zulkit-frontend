@@ -3,7 +3,7 @@ import { computed, onMounted } from 'vue';
 import { useUserStore } from '@/stores/user';
 
 import LogoVue from './Logo.vue';
-import UserInfo from './Userinfo.vue';
+import UserInfo from './UserInfo.vue';
 import NavbarLinkVue from './NavbarLink.vue';
 import AuthButton from './AuthButton.vue';
 
