@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 import axios from 'axios';
 
@@ -11,12 +11,12 @@ const userStore = useUserStore()
 
 const detail = ref(false);
 const user = computed(() => userStore.getUser)
-const isLoggedIn = computed(() => userStore.isLoggedIn)
 
 async function getProductAPI() {
     try {
         const response = await axios.get('https://zullkit-backend.buildwithangga.id/api/products?id=' + route.params.id)
         detail.value = response.data.data
+        // console.log("masoook"+detail)
     } catch (error) {
         console.error(error)
     }
@@ -27,11 +27,9 @@ const features = computed(() => {
 
 onMounted(() => {
     window.scrollTo(0, 0);
-    userStore.fetchUser()
-    getProductAPI()
+    userStore.fetchUser();
+    getProductAPI();
 })
-
-
 </script>
 
 <template>
@@ -40,7 +38,7 @@ onMounted(() => {
             <div class="flex flex-row flex-wrap py-4">
                 <main role="main" class="w-full px-4 pt-1 sm:w-2/3 md:w-2/3">
                     <h1 class="mb-2 text-3xl font-bold leading-normal tracking-tight text-gray-900 sm:text-4xl md:text-4xl">
-                        {{detail.name}}
+                        {{ detail.name }}
                     </h1>
                     <p class="text-gray-500">{{ detail.subtitle }}</p>
 
